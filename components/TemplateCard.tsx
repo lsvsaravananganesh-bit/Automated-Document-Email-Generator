@@ -1,0 +1,1 @@
+export default function TemplateCard({template,selected,onSelect}){return <button className={`template-card ${selected?"selected":""}`} onClick={()=>onSelect?.(template.id)}><div className="template-icon">{template.icon}</div><h3>{template.name}</h3><p>{template.description}</p><span>{selected?"Selected":"Select template"}</span></button>}

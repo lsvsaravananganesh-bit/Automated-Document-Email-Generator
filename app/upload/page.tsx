@@ -1,0 +1,6 @@
+"use client";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import FileUpload from "../../components/FileUpload";
+import { parseFile } from "../../lib/file-parser";
+export default function UploadPage(){const [file,setFile]=useState(null),[loading,setLoading]=useState(false),[error,setError]=useState("");const router=useRouter();async function handle(){if(!file){setError("Select a CSV or Excel file first.");return}setLoading(true);setError("");try{const result=await parseFile(file);sessionStorage.setItem("docflow-preview",JSON.stringify(result));router.push("/preview")}catch(e){setError(e.message||"Could not parse the file.")}finally{setLoading(false)}}return <div className="page"><div className="page-intro"><span className="kicker">STEP 01</span><h2>Upload your data</h2><p>Bring in the spreadsheet that contains the recipients and fields used to personalize your documents.</p></div><div className="panel"><FileUpload onFile={setFile}/>{error&&<div className="error-box">{error}</div>}<div className="panel-footer"><div><strong>Tip</strong><span>Recommended columns: name, email, department, role</span></div><button className="primary-btn" onClick={handle} disabled={loading}>{loading?"Parsing…":"Parse & Preview →"}</button></div></div></div>}

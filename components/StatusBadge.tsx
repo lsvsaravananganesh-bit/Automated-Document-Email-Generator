@@ -1,0 +1,1 @@
+const map={Delivered:"delivered",Sent:"sent",Pending:"pending",Failed:"failed"};export default function StatusBadge({status}){return <span className={`status ${map[status]||"pending"}`}><i/>{status}</span>}
