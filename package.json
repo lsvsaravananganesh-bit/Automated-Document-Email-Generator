@@ -1,7 +1,7 @@
 {
   "name": "automated-document-email-generator",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {"dev":"next dev","build":"next build","start":"next start"},
-  "dependencies": {"next":"latest","react":"latest","react-dom":"latest","lucide-react":"latest","xlsx":"latest"}
+  "dependencies": {"next":"latest","react":"latest","react-dom":"latest","lucide-react":"latest","xlsx":"latest","@supabase/supabase-js":"latest","pdf-lib":"latest","jszip":"latest"}
 }
